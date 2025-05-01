@@ -1,0 +1,66 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('/fonts/SFProText-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('/fonts/SFProText-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('/fonts/SFProText-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@theme {
+  --animate-shake: shake 0.4s ease-in-out;
+  --font-sans: 'SF Pro Text', 'sans-serif';
+
+  --breakpoint-xs: 20rem;
+
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    75% {
+      transform: translateX(5px);
+    }
+  }
+}
+
+@layer utilities {
+  .text-gradient-midnight {
+    background: linear-gradient(
+        103.92deg,
+        #000000 -10.06%,
+        #383bfe 63.04%,
+        rgba(241, 241, 241, 0.5) 116.12%
+      ),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .shadow-deep-blue {
+    box-shadow: 0 0 #0000;
+  }
+
+  @media (min-width: 1024px) {
+    .shadow-deep-blue {
+      box-shadow: -2px 0px 30px -10px #06357014;
+    }
+  }
+}
