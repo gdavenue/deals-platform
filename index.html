@@ -443,8 +443,12 @@
               <div>
                 <button
                   class="rounded-4xl h-12 w-full flex justify-center items-center gap-x-2"
-                  :class="isFilled() ? 'cursor-pointer bg-blue-500 text-white' : 'cursor-not-allowed bg-gray-200 text-gray-500'"
-                  :disabled="!isFilled()"
+                  :class="[
+                    (!isFilled()) ? 'bg-gray-200 text-gray-500 cursor-not-allowed' :
+                      isProcessing ? 'bg-blue-500 text-white cursor-not-allowed' :
+                      'bg-blue-500 text-white cursor-pointer'
+                  ]"
+                  :disabled="!isFilled() || isProcessing"
                   @click="submit"
                 >
                   <template x-if="!isProcessing">
